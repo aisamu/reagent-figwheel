@@ -9,9 +9,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Vars
 
-(defonce debug?
-  ^boolean js/goog.DEBUG)
-
 (defonce app-state
   (reagent/atom
    {:text "Hello, what is your name? "}))
@@ -30,7 +27,7 @@
 ;; Initialize App
 
 (defn dev-setup []
-  (when debug?
+  (when ^boolean js/goog.DEBUG
     (enable-console-print!){{#re-frisk?}}
     (rf/enable-frisk!)
     (rf/add-data :app-state app-state){{/re-frisk?}}
